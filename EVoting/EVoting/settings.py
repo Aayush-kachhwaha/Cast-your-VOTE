@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'VotingApp.apps.VotingappConfig',
-    "verify_email.apps.VerifyEmailConfig",
 ]
 
 MIDDLEWARE = [
@@ -141,5 +140,9 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PW')
 
 DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
 
-EXPIRE_AFTER = "30m"
-MAX_RETRIES = "5"
+#LOGIN_URL = 'login/'
+
+#AUTH_USER_MODEL = 'VotingApp.registeredUsers'
+
+MEDIA_URL = '/images/downloads/'
+MEDIA_ROOT = BASE_DIR

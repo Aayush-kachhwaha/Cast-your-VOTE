@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+    <title>Vote listing page</title>
+{% endblock %}
+
+{% block bodycontent %}
+    <div class="container-fluid">
+        <div class="row mx-auto">
+            {% for items in all %}
+            <div class="card mx-auto mt-4" style="width: 18rem;">
+                <div class="card-header">
+                    {{items.status}} - {{items.category}}
+                </div>
+                <img src={{items.logo.url}} class="card-img-top" alt="{{items.party}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{items.candidate_name}}, {{items.party}}</h5>
+                    <p class="card-text">{{items.agenda}}</p>
+                    <a href="#" class="btn btn-primary"><b>Click to cast your vote</b></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    
+
+{% endblock %}

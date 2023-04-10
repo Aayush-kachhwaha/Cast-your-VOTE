@@ -50,73 +50,43 @@
                   <p>Note: Your Aadhaar card will be linked to this portal</p>
                 </div>
 
-                <!-- if aadhaar verified -->
+                <!-- Username input -->
                 <div class="form-outline mb-4">
                   <input type="text" id="username" name="username" class="form-control"
                     placeholder="Enter a unique username" maxlength="50" value="{{val.username}}" />
                   <label class="form-label" for="username"><b>Enter your username</b></label>
                 </div>
 
-                <!-- Mobile number case -->
-                <div class="form-outline mb-4">
-                  <input type="checkbox" id="mobile-from-aadhaar" name="check" value="1" value="{{val.mobileFromAadhaar}}">
-                  <label for="mobile-from-aadhaar"><b>Use mobile number from Aadhaar</b></label><br>
-                  <p>Note: To use mobile number from Aadhaar, select the checkbox and press GO button</p>
-                </div>
-                <!-- if number_from_aadhaar false-->
+                <!-- Mobile input -->
                 <div class="form-outline mb-4">
                   <input type="text" id="mobile-number" name="mobile" class="form-control"
                     placeholder="Mobile number" value="{{val.mobile}}" />
-                  <label class="form-label" for="mobile-number"><b>Enter a different mobile number</b></label>
-                  <p>Note: Kindly opt one of the options for mobile number verification.</br>
-                    Aadhaar linked mobile number will be used for future processes if both options are chosen
-                    simultaneously.</p>
-                </div>
-                <!-- Mobile otp -->
-                <button name="button" value="mobileOTP" type="submit" class="btn btn-primary mb-4">
-                  <b>Get mobile OTP</b>
-                </button>
-
-                <div class="form-outline mb-4">
-                  <input type="number" id="mobile-otp" name="mobile-otp" class="form-control"
-                    placeholder="Mobile OTP" />
-                  <label class="form-label" for="mobile-otp"><b>Enter OTP send to your mobile number</b></label>
+                  <label class="form-label" for="mobile-number"><b>Enter your 10-digit mobile number</b></label>
                 </div>
 
-                <!-- Email ID case -->
-                <div class="form-outline mb-4">
-                  <input type="text" id="email" name="email" class="form-control" placeholder="E-mail ID" value="{{val.email}}" />
-                  <label class="form-label" for="email"><b>Enter your E-mail ID</b></label>
-                </div>
-                <!-- Email otp -->
-                <button name="button" value="emailOTP" type="submit" class="btn btn-primary mb-4">
-                  <b>Get e-mail OTP</b>
-                </button>
-
-                <div class="form-outline mb-4">
-                  <input type="number" id="email-otp" name="email-otp" class="form-control" placeholder="E-mail OTP" />
-                  <label class="form-label" for="email-otp"><b>Enter OTP send to your E-mail ID</b></label>
-                </div>
-
-                <!-- Mobile/email verified -->
                 <!-- Pin input -->
                 <div class="form-outline mb-4">
-                  <input type="text" id="pin" name="pin" class="form-control" placeholder="****" />
+                  <input type="password" id="pin" name="pin" class="form-control" placeholder="****" />
                   <label class="form-label" for="pin"><b>Set a 4-digit pin</b></label>
                   <p>Note: Your pin can be alpha-numeric.</p>
                 </div>
 
                 <!-- Confirm pin input -->
                 <div class="form-outline mb-4">
-                  <input type="text" id="confirm_pin" name="confirm_pin" class="form-control" placeholder="****" />
+                  <input type="password" id="confirm_pin" name="confirm_pin" class="form-control" placeholder="****" />
                   <label class="form-label" for="confirm_pin"><b>Confirm pin</b></label>
                 </div>
-                <!-- endif -->
+                
                 <!-- Submit button -->
                 <button name="button" value="submit" type="submit" class="btn btn-success btn-block mb-4">
                   <b>REGISTER</b>
                 </button>
               </form>
+              <!--
+              <div class="text-center">
+                <p><b>Click <a href="verify">here</a> to verify mobile number</b></p>
+              </div>
+              -->
             </div>
           </div>
         </div>

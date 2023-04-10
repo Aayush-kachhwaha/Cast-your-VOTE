@@ -1,0 +1,75 @@
+<!-- This is initial landing + login page -->
+{% extends 'base.html' %}
+
+{% block headcontent %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static '../static/index.css' %}">
+
+<title>E-voting portal</title>
+{% endblock %}
+
+{% block bodycontent %}
+<div class="body-background">
+  <h1 class="heading">VOTE INDIA</h1>
+  <h2 class="heading2">A digital voting platform</h2>
+
+  <!-- Section: Design Block -->
+  <section class="text-center text-lg-start">
+    <!-- Jumbotron -->
+    <div class="container py-2">
+      <div class="row align-items-center shadow-lg p-3 mb-5 bg-white rounded">
+
+        <!-- Logo starts -->
+        <div class="col-lg-6 mb-2 mb-lg-0">
+          <img src="{% static 'media/logo.jpeg' %}" class="w-100" alt="logo" />
+        </div>
+        <!-- Logo ends -->
+
+        <!-- Form starts -->
+        <div class="col-lg-6 mb-2 mb-lg-0">
+          <div class="rounded-left cascading-left" style="
+              background: rgb(244, 168, 45);
+              backdrop-filter: blur(80px);
+              ">
+            <div class="card-body p-5 shadow-5 text-center">
+              <h2 class="fw-bold mb-5" style="color:rgb(240, 237, 237)">Mobile OTP verification</h2>
+              <form action="" method="POST">
+
+                {% csrf_token %}
+                
+                <!-- Mobile input -->
+                <div class="form-outline mb-4">
+                  <input type="text" id="mobile-number" name="mobile" class="form-control"
+                    placeholder="Mobile number" value="{{request.user.mobile}}" readonly />
+                  <label class="form-label" for="mobile-number"><b>Mobile number</b></label>
+                </div>
+
+                <!-- Mobile OTP input -->
+                <div class="form-outline mb-4">
+                  <input type="text" id="otp" name="otp" class="form-control" placeholder="OTP" />
+                  <label class="form-label" for="otp"><b>Enter OTP sent on your mobile number</b></label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">
+                  <b>Verify</b>
+                </button>
+
+              </form>
+              <!-- Note -->
+              <div class="text-center">
+                <p><b>Note: This mobile number will be used in case if you forget your password or want to change it.</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Form ends -->
+    </div>
+    <!-- Jumbotron -->
+  </section>
+  <!-- Section: Design Block -->
+</div>
+
+{% endblock %}
