@@ -1,3 +1,6 @@
+html{
+    font-size: 62.5%;
+}
 .body-background{
     background-image: linear-gradient(to right, rgb(244, 168, 45), rgb(244, 208, 130));
 }

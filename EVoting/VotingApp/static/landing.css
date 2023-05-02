@@ -1,4 +1,3 @@
-/* Side nav bar styling starts */
 html{
     font-size: 62.5%;
 }
@@ -13,6 +12,5 @@ h2{
 }
 
 .body-content{
-    border-top: .2rem solid rgb(250, 216, 165);
     background: rgb(250, 220, 173);
 }

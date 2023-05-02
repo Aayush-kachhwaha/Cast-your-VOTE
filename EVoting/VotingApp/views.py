@@ -173,12 +173,35 @@ def login(request) :
 #@aadhaar_verification_required
 #@login_required
 def landing(request):
-    return render(request, 'landing.html')
+    if request.method == 'GET' :
+        all = Election.objects.all()
+        ongoing = []
+        upcoming = []
+        completed = []
+        for obj in all.iterator():
+            if str(obj.status) == 'Ongoing' :
+                ongoing.append(obj)
+            elif str(obj.status) == 'Upcoming' :
+                upcoming.append(obj)
+            else :
+                completed.append(obj)
+        
+        return render(request, 'landing.html', {'ongoing' : ongoing, 'upcoming' : upcoming, 'completed' : completed})
+    
+    else :
+        data = request.POST
+        id = data.get('id')
+        return redirect(vote, id=id)
 
 
 def home(request):
     if request.method == 'GET' :
-        all = Election.show_all() 
+        all = Election.show_all()
         return render(request, 'home.html', {'all' : all})
+    
+
+def vote(request, id) :
+    details = Election.objects.filter(id = id)
+    return render(request, 'vote.html', {'details' : details})
     
     

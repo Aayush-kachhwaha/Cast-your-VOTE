@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+
+<title>Voting portal</title>
+
+{% load static %}
+<link rel="stylesheet" href="{% static '../static/index.css' %}">
+<link rel="stylesheet" href="{% static '../static/landing.css' %}">
+
+{% endblock %}
+
+{% block bodycontent %}
+
+<div class="body-background">
+    <h1 class="heading">VOTE INDIA</h1>
+    <h2 class="heading2">A digital voting platform</h2>
+</div>
+
+<div>
+    {% for obj in details %}
+        {{obj.logo}} -- {{obj.party}} -- {{obj.candidate_name}} -- {{obj.agenda}}
+    {% endfor %}
+</div>
+
+{% endblock %}

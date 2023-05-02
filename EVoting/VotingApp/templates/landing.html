@@ -13,48 +13,104 @@
 {% block bodycontent %}
 
 <div class="body-background">
-    <h1 class="heading">VOTE INDIA</h1>
-    <h2 class="heading2">A digital voting platform</h2>
+  <h1 class="heading">VOTE INDIA</h1>
+  <h2 class="heading2">A digital voting platform</h2>
 
-    
-        <!-- Vertical aside starts -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Option 1</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Option 2</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown link
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
 
-    <div class="body-content">
-        Abhinav
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-2" href="">HOME</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navID"
+        aria-controls="navID" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navID">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link fs-3" aria-current="page" href="home">Elections</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-3" href="#">Voters list</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-3" href="#">Option 2</a>
+          </li>
+
+        </ul>
+      </div>
     </div>
-
-
+  </nav>
 </div>
+
+
+<form action="" method="POST">
+  {% csrf_token %}
+
+  <div class="body-content">
+    <p class="pt-4 ps-4 pb-5 fs-1 fw-bold text-decoration-underline">ONGOING ELECTIONS</p>
+    <div class="container-fluid">
+      <div class="row mx-auto">
+        {% for items in ongoing %}
+        <div class="card mx-auto mt-2 overflow-auto mb-5" style="width: 32rem; height: 27rem;">
+          <div class="card-header fs-3">
+            {{items.status}} - {{items.category}}
+          </div>
+          <img src="https://picsum.photos/150/100" class="card-img-top" alt="{{items.party}}">
+          <div class="card-body">
+            <h5 class="card-title fs-3">{{items.candidate_name}}, {{items.party}}</h5>
+            <p class="card-text fs-2">{{items.agenda}}</p>
+            <button type="submit" class="btn btn-primary fs-3" name = "id" value = {{items.id}}><b>Click to cast your vote</b></button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="body-content">
+    <p class="pt-4 ps-4 pb-5 fs-1 fw-bold text-decoration-underline">UPCOMING ELECTIONS</p>
+    <div class="container-fluid">
+      <div class="row mx-auto">
+        {% for items in upcoming %}
+        <div class="card mx-auto mt-2 overflow-auto mb-5" style="width: 32rem; height: 27rem;">
+          <div class="card-header fs-3">
+            {{items.status}} - {{items.category}}
+          </div>
+          <img src="https://picsum.photos/150/100" class="card-img-top" alt="{{items.party}}">
+          <div class="card-body">
+            <h5 class="card-title fs-3">{{items.candidate_name}}, {{items.party}}</h5>
+            <p class="card-text fs-2">{{items.agenda}}</p>
+            <button type="submit" class="btn btn-primary fs-3" name = "id" value = {{items.id}}><b>Click to cast your vote</b></button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="body-content">
+    <p class="pt-4 ps-4 pb-5 fs-1 fw-bold text-decoration-underline">COMPLETED ELECTIONS</p>
+    <div class="container-fluid">
+      <div class="row mx-auto">
+        {% for items in completed %}
+        <div class="card mx-auto mt-2 overflow-auto mb-5" style="width: 32rem; height: 27rem;">
+          <div class="card-header fs-3">
+            {{items.status}} - {{items.category}}
+          </div>
+          <img src="https://picsum.photos/150/100" class="card-img-top" alt="{{items.party}}">
+          <div class="card-body">
+            <h5 class="card-title fs-3">{{items.candidate_name}}, {{items.party}}</h5>
+            <p class="card-text fs-2">{{items.agenda}}</p>
+            <button type="submit" class="btn btn-primary fs-3" name = "id" value = {{items.id}}><b>Click to cast your vote</b></button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+</form>
 
 {% endblock %}
